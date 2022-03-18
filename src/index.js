@@ -113,7 +113,7 @@ L.Control.EasyPrint = L.Control.extend({
     }
     var sizeMode = typeof event !== 'string' ? event.target.className : event;
     if (sizeMode === 'CurrentSize') {
-      return this._printOpertion(sizeMode);
+      return this._printOperation(sizeMode);
     }
     this.outerContainer = this._createOuterContainer(this.mapContainer)
     if (this.originalState.widthWasAuto) {
@@ -165,7 +165,7 @@ L.Control.EasyPrint = L.Control.extend({
     if (this.options.tileLayer) {
       this._pausePrint(sizeMode)
     } else {
-      this._printOpertion(sizeMode)
+      this._printOperation(sizeMode)
     }
   },
 
@@ -174,12 +174,12 @@ L.Control.EasyPrint = L.Control.extend({
     var loadingTest = setInterval(function () { 
       if(!plugin.options.tileLayer.isLoading()) {
         clearInterval(loadingTest);
-        plugin._printOpertion(sizeMode)
+        plugin._printOperation(sizeMode)
       }
     }, plugin.options.tileWait);
   },
 
-  _printOpertion: function (sizemode) {
+  _printOperation: function (sizemode) {
     var plugin = this;
     var widthForExport = this.mapContainer.style.width
     if (this.originalState.widthWasAuto && sizemode === 'CurrentSize' || this.originalState.widthWasPercentage && sizemode === 'CurrentSize') {
