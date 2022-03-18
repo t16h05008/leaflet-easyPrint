@@ -22,7 +22,8 @@ L.Control.EasyPrint = L.Control.extend({
     }
   },
 
-  onAdd: function () { 
+  onAdd: function (map) { 
+    map.easyPrintControl = this;
     this.mapContainer = this._map.getContainer();
     this.options.sizeModes = this.options.sizeModes.map(function (sizeMode) {
       if (sizeMode === 'Current') {
@@ -75,6 +76,10 @@ L.Control.EasyPrint = L.Control.extend({
       L.DomEvent.disableClickPropagation(container);
     }
     return container;
+  },
+
+  onRemove: function(map) {
+    delete map.easyPrintControl;
   },
 
   printMap: function (event, filename) {
