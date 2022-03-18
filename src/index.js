@@ -223,7 +223,7 @@ L.Control.EasyPrint = L.Control.extend({
             // Couldn't figure out how to access the parameter
             // Workaround is to add is as a property...
             // plugin._map.fire("easyPrint-finished", {event: blob});
-            plugin._map.easyPrintControl.result = blob;
+            plugin.easyPrintControl.result = blob;
             plugin._map.fire("easyPrint-finished");
           } else {
             plugin._map.fire("easyPrint-finished");
