@@ -223,7 +223,8 @@ L.Control.EasyPrint = L.Control.extend({
             // Couldn't figure out how to access the parameter
             // Workaround is to add is as a property...
             // plugin._map.fire("easyPrint-finished", {event: blob});
-            window.leafletEasyPrintResult = blob;
+            console.log(plugin);
+            plugin._map.getContainer().setAttribute( "data-leafletEasyPrintResult", dataUrl)
             plugin._map.fire("easyPrint-finished");
           } else {
             plugin._map.fire("easyPrint-finished");
