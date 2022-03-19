@@ -220,11 +220,13 @@ L.Control.EasyPrint = L.Control.extend({
             plugin._map.setView(plugin.originalState.center);
             plugin._map.setZoom(plugin.originalState.zoom);
           }
+          console.log(plugin.options);
           if (plugin.options.outputMode === 'event') {
             // Couldn't figure out how to access the parameter
             // Workaround is to add is as a property...
             // plugin._map.fire("easyPrint-finished", {event: blob});
             console.log(plugin);
+            console.log(this);
             plugin._map.getContainer().setAttribute( "data-leafletEasyPrintResult", dataUrl)
             plugin._map.fire("easyPrint-finished");
           } else {
