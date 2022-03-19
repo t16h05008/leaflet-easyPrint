@@ -185,6 +185,7 @@ L.Control.EasyPrint = L.Control.extend({
   },
 
   _printOperation: function (sizemode) {
+    console.log("here");
     var plugin = this;
     var widthForExport = this.mapContainer.style.width
     if (this.originalState.widthWasAuto && sizemode === 'CurrentSize' || this.originalState.widthWasPercentage && sizemode === 'CurrentSize') {
@@ -227,6 +228,7 @@ L.Control.EasyPrint = L.Control.extend({
             plugin._map.getContainer().setAttribute( "data-leafletEasyPrintResult", dataUrl)
             plugin._map.fire("easyPrint-finished");
           } else {
+            console.log("here2");
             plugin._map.fire("easyPrint-finished");
           }
       })
