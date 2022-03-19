@@ -220,7 +220,7 @@ L.Control.EasyPrint = L.Control.extend({
             plugin._map.setZoom(plugin.originalState.zoom);
           }
           if (plugin.options.outputMode === 'event') {
-            plugin._map.fire("easyPrint-finished", {event: blob});
+            plugin._map.fire("easyPrint-finished", {event: dataUrl});
           } else {
             plugin._map.fire("easyPrint-finished");
           }
