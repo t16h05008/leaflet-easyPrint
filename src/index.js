@@ -185,7 +185,6 @@ L.Control.EasyPrint = L.Control.extend({
   },
 
   _printOperation: function (sizemode) {
-    console.log("here");
     var plugin = this;
     var widthForExport = this.mapContainer.style.width
     if (this.originalState.widthWasAuto && sizemode === 'CurrentSize' || this.originalState.widthWasPercentage && sizemode === 'CurrentSize') {
@@ -220,17 +219,9 @@ L.Control.EasyPrint = L.Control.extend({
             plugin._map.setView(plugin.originalState.center);
             plugin._map.setZoom(plugin.originalState.zoom);
           }
-          console.log(plugin.options);
           if (plugin.options.outputMode === 'event') {
-            // Couldn't figure out how to access the parameter
-            // Workaround is to add is as a property...
-            // plugin._map.fire("easyPrint-finished", {event: blob});
-            console.log(plugin);
-            console.log(this);
-            plugin._map.getContainer().setAttribute( "data-leafletEasyPrintResult", dataUrl)
-            plugin._map.fire("easyPrint-finished");
+            plugin._map.fire("easyPrint-finished", {event: blob});
           } else {
-            console.log("here2");
             plugin._map.fire("easyPrint-finished");
           }
       })
